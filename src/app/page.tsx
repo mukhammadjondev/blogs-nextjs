@@ -1,5 +1,9 @@
+import { Button } from "@mui/material";
+
 export default function Home() {
   return (
-    <div>Hello world</div>
+    <>
+      <Button>Click me</Button>
+    </>
   )
 }
