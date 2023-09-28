@@ -6,7 +6,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube'
 
 const Footer = () => {
   return (
-    <Box paddingX={'20px'} height={'8vh'} sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'primary.main', color: 'white'}}>
+    <Box paddingX={'20px'} height={'8vh'} sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#141414', color: 'white'}}>
       <Typography>© {format(new Date(), 'yyyy')} Muhs. All Right Reserved.</Typography>
       <Box sx={{display: 'flex', gap: '15px'}}>
         <TelegramIcon sx={{cursor: 'pointer'}} />

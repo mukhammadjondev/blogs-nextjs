@@ -1,9 +1,9 @@
-import { Button } from "@mui/material";
+import { Hero } from "@/components";
 
 export default function Home() {
   return (
     <>
-      <Button>Click me</Button>
+      <Hero />
     </>
   )
 }
