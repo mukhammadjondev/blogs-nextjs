@@ -5,6 +5,7 @@ import Carousel from 'react-multi-carousel'
 import Image from 'next/image'
 import { format } from 'date-fns'
 import { HeroProps } from './hero.interface'
+import { calculateEstimetedTimeToRead } from '@/helpers/time.format'
 
 const Hero = ({blogs}: HeroProps) => {
   return (
@@ -27,7 +28,7 @@ const Hero = ({blogs}: HeroProps) => {
                   <Avatar src={item.author.avatar?.url} alt={item.author.name} />
                   <Box>
                     <Typography>{item.author.name}</Typography>
-                    <Box>{format(new Date(item.createdAt), 'dd MMM, yyyy')} • 10min read</Box>
+                    <Box>{format(new Date(item.createdAt), 'dd MMM, yyyy')} • {calculateEstimetedTimeToRead(item.description.text)}min read</Box>
                   </Box>
                 </Box>
               </Box>

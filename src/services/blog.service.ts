@@ -27,6 +27,9 @@ export const BlogsService = {
             label
             slug
           }
+          description {
+            text
+          }
         }
       }
     `
@@ -42,6 +45,9 @@ export const BlogsService = {
           slug
           title
           createdAt
+          description {
+            text
+          }
           image {
             url
           }
