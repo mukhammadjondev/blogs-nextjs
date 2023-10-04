@@ -5,12 +5,14 @@ import { useState } from "react";
 import { navItems } from "@/config/constants";
 import CloseIcon from '@mui/icons-material/Close'
 import ViewCompactAltOutlinedIcon from '@mui/icons-material/ViewCompactAltOutlined';
+import { useRouter } from "next/router";
 
 interface Props {
   window?: () => Window
 }
 
 const Navbar = ({window}: Props) => {
+  const router = useRouter()
   const [mobileOpen, setMobileOpen] = useState(false)
   const container = window !== undefined ? () => window().document.body : undefined
 
@@ -57,7 +59,7 @@ const Navbar = ({window}: Props) => {
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item.route} sx={{ color: '#fff' }}>
+              <Button onClick={() => router.push(item.route)} key={item.route} sx={{ color: '#fff' }}>
                 {item.label}
               </Button>
             ))}
