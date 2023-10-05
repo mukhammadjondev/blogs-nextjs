@@ -4,8 +4,8 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { useState } from "react";
 import { navItems } from "@/config/constants";
 import CloseIcon from '@mui/icons-material/Close'
-import ViewCompactAltOutlinedIcon from '@mui/icons-material/ViewCompactAltOutlined';
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 interface Props {
   window?: () => Window
@@ -19,19 +19,19 @@ const Navbar = ({window}: Props) => {
   const handleDrawerToggle = () => setMobileOpen((prevState) => !prevState)
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box sx={{ textAlign: 'center' }}>
       <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingX: '20px'}}>
         <Box sx={{ my: 2 , display: 'flex', alignItems: 'center', gap: '5px'}}>
-          <ViewCompactAltOutlinedIcon />
-          <Typography variant="h6">Muhs</Typography>
+          <Image src={'/favicon.svg'} alt='logo' width={50} height={50} />
+          <Typography variant="h5" component="div">MS</Typography>
         </Box>
-        <CloseIcon />
+        <CloseIcon onClick={handleDrawerToggle} sx={{cursor: 'pointer'}} />
       </Box>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item.route} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton onClick={() => router.push(item.route)} sx={{ textAlign: 'center', cursor: 'pointer'}}>
               <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
@@ -53,9 +53,9 @@ const Navbar = ({window}: Props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ my: 2, flexGrow: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: '5px'}}>
-            <ViewCompactAltOutlinedIcon />
-            <Typography variant="h6" component="div">Muhs</Typography>
+          <Box onClick={() => router.push('/')} sx={{ my: 2, flexGrow: 1, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
+            <Image src={'/favicon.svg'} alt='logo' width={50} height={50} />
+            <Typography variant="h5" component="div">MS</Typography>
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (

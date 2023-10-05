@@ -1,5 +1,5 @@
 export const siteConfig = {
-  metaTitle: 'Muhs blogs',
+  metaTitle: 'MS blogs',
   metaDescription: 'All blogs about IT',
   author: 'Mukhammadjon Solijonov',
   metaKeywords: 'blogs, IT'
